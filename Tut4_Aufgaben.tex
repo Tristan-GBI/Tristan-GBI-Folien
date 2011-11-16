@@ -1,0 +1,141 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Übungen 1}
+\date{27. Oktober 2011}
+
+\begin{document}
+
+\begin{frame}[label=start]
+	\frametitle{Aufgaben}
+	\begin{block}{Algorithmen}
+		\begin{itemize}
+			\item \hyperlink{1.1}{Invariante finden+beweisen}
+			\item \hyperlink{1.2}{Invariante beweisen/widerlegen}
+			\item \hyperlink{1.3}{Algorithmus finden}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[label=1.1]
+	\frametitle{Aufgabe 1}
+	\begin{block}{Aufgabe}
+		
+		\begin{tabbing}
+			$x \leftarrow a$\\
+			$y \leftarrow b$\\
+			\textbf{for} \=$i \leftarrow 0$ \textbf{to} $a+b+1$ \textbf{do}\\
+			\> $k \leftarrow min(x,y)$\\
+			\> $g \leftarrow max(x,y)$\\
+			\> $x \leftarrow k$\\
+			\> $y \leftarrow g-k$\\
+			\textbf{od}\\
+			\\
+			$a,b \in \mathbb{N}_0$ und $a + b \ge 1$\\
+			\\
+			Finde und beweise eine aussagekräftige Schleifeninvariante.
+		\end{tabbing}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 2}
+	\begin{block}{Lösung}
+		$ggT(a,b) = ggT(x,y)$
+	\end{block}
+	\begin{block}{Beweis}
+		\begin{tabbing}
+			\pause
+			sei $k = ggT(a,b)$\\
+			\pause
+			$\Rightarrow$ \= $a = k\cdot n_1$ und $  b = k\cdot n_2$\\
+			\pause
+			sei oBdA $a \ge b$\\
+			\pause
+			$\Rightarrow$ Nach erstem Schleifendurchlauf:\\
+			\pause
+			\>$x=b$ und $ y=a-b$\\
+			\pause
+			$\Rightarrow x = k\cdot n_2 $ und $  y = (k\cdot n_1 + k\cdot n_2) = k \cdot (n_1+n_2) = k \cdot n_3$\\
+			etc\dots
+		\end{tabbing}
+	\end{block}
+	\hyperlink{start}{\beamergotobutton{zurück}}
+\end{frame}
+
+\begin{frame}[label=1.2]
+	\frametitle{Aufgabe 2}
+	\begin{block}{Aufgabe}
+		
+		\begin{tabbing}
+			$X_0 \leftarrow 2$\\
+			$Y_0 \leftarrow 5$\\
+			\textbf{for} \=$i \leftarrow 0$ \textbf{to} $n$ \textbf{do}\\
+			\> $j \leftarrow i$\\
+			\> $Y_{j+1} \leftarrow 5Y_j - 6X_j$\\
+			\> $X_{j+1} \leftarrow Y_j$\\
+			\> $y \leftarrow g-k$\\
+			\textbf{od}\\
+			\\
+			\\
+			Beweise oder widerlege:\\
+			$Y_j = 2^{j+1}+3^{j+1} \land X_j = 2^j + 3^j$ ist Schleifeninvariante.
+		\end{tabbing}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 2}
+	\begin{block}{Lösung}
+		Vollständige Induktion!
+	\end{block}
+	\pause
+	\begin{block}{Induktionsanfang}
+		$j=0:$\\
+		$2^{0+1} + 3^{0+1} = 5 = Y_0 \land 2^0 + 3^0 = 2 = X_0$
+
+		Rest Tafel
+	\end{block}
+	\hyperlink{start}{\beamergotobutton{zurück}}
+\end{frame}
+
+\begin{frame}[label=1.3]
+	\frametitle{Aufgabe 3}
+	\begin{block}{Aufgabe}
+		Schreiben Sie einen Algorithmus auf, der folgendes leistet:
+		\begin{itemize}
+			\item Als Eingaben erhält er ein Wort $w : \mathbb{G}_n \rightarrow A$ und zwei 					Symbole $x \in A$ und $y \in A$.
+			\item Am Ende soll eine Variable r den Wert 0 oder 1 haben, und zwar soll gelten:\\
+				r = $\begin{cases} 1 & $falls irgendwo in $w$ direkt$\\ & $hintereinander erst  				x und dann y vorkommen$\\
+				0 & $sonst$\end{cases}$
+		\end{itemize}
+		Benutzen Sie zum Zugriff auf das $i$-te Symbol von $w$ die Schreibweise $w(i)$.\\
+		Formulieren Sie den Algorithmus mit Hilfe einer \textbf{for}-Schleife.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 3}
+	\begin{block}{Lösung}
+		\begin{tabbing}
+			$p \leftarrow 0$\\
+			\textbf{for} \= $i \leftarrow 0$ \textbf{to} $n-2$ \textbf{do}\\
+			\>$p \leftarrow$
+			$\begin{cases}$
+				1 $&$ falls $w(i)=x \land w(i+1) = y\\$
+				p $&$ sonst
+			$\end{cases}$
+		\end{tabbing}
+	\end{block}
+	\hyperlink{start}{\beamergotobutton{zurück}}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,348 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 1}
+\date{27. Oktober 2011}
+
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Inhaltsverzeichnis}
+	\tableofcontents
+\end{frame}
+
+\section{Organisatorisches}
+
+\begin {frame}
+
+	\begin{block}{Vorstellung}
+		\begin{columns}
+       			 \column{0.8\textwidth}
+               			\begin{itemize}
+					\item Name
+					\item Alter
+					\item Studiengang (Semester)
+					\item Woher?
+					\item Erwartungen
+				\end{itemize}
+		\end{columns}
+	\end{block}
+\end {frame}
+
+\begin {frame}
+	\frametitle {Organisatorisches}
+	\begin{block}{Tutorium ist}
+        		\begin{itemize}
+			\item kurze Wiederholung der Vorlesung
+			\item Anlaufstelle für Fragen
+			\item Übungsbereich für aktuellem Vorlesungsstoff
+			\item Ausgabestelle der Übungsblätter
+			\item Freiwillig
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Tutorium ist nicht}
+        		\begin{itemize}
+			\item Vorlesungsersatz
+			\item Lösungsstelle für kommendes Übungsblatt
+		\end{itemize}
+	\end{block}
+\end {frame}
+
+\begin {frame}
+	\frametitle {Organisatorisches}
+	\begin{block}{Übungsblatt}
+        		\begin{itemize}
+			\item Übungsblatt einzelnd handschriftlich bearbeiten
+			\item Abgabe Freitag 12:30 Uhr im Briefkasten im Keller
+			\item Offensichtlich abgeschrieben $\Rightarrow$ 0 Punkte
+			\item Ab Hälfte der Punkte bestanden (Voraussichtlich 120)
+			\item Übungsschein zum Bestehen des Moduls notwendig
+		\end{itemize}
+	\end{block}
+\end {frame}
+
+\begin{frame}
+
+	\begin{block}{Klausur}
+        		\begin{itemize}
+			\item 5. März 2012 (11 Uhr)
+			\item Nachprüfung im September
+			\item Klausur ist Teil der Orientierungsprüfung.
+		\end{itemize}
+	\end{block}
+	\pause
+	\frametitle {Organisatorisches}
+	\begin{block}{Kontakt / Information}
+		\begin{itemize}
+			\item gbi.tutorium@googlemail.com
+			\item http://gbi.ira.uka.de/
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Alphabete}
+
+\begin{frame}
+	\frametitle{Alphabete}
+	\begin{block}{Definition}
+		Ein Alphabet ist eine \emph{endliche, nichtleere} Menge von Zeichen.
+	\end{block}
+	\begin{exampleblock}{Aufgaben}
+		\begin{itemize}
+			\item $\mathbb N$\(_{+}\) ?
+			\item \(M=\{\phi,3,\psi,a\}\) ?
+		\end{itemize}
+	\end{exampleblock}
+	\pause
+	\begin{alertblock}{Notation}
+		\begin{itemize}
+			\item $\mathbb N$\(_{+}=\{1,2,3,\dots\}\) (positive ganze Zahlen)
+			\item $\mathbb N$\(_{0}=\{0,1,2,3,\dots\}\) (nichtnegative ganze Zahlen)
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\section{Aussagenlogik}
+
+\begin {frame} 
+	\frametitle {Aussagenlogik}
+	\begin{block}{}
+		\begin{itemize}
+			\item Eine Aussage ist ein Satz, der (objektiv) entweder wahr oder falsch sein kann
+			\item Aussagen sind äquivalent (\(\Leftrightarrow\)), wenn sie die gleichen Wahrheitswerte besitzen
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Logisches UND und ODER}
+	\begin{center}
+		\begin{tabular}{|c|c||c| }
+			\hline
+			A 		&  B 		& A $\land$ B	\\
+			\hline
+			wahr 		& wahr 	& \textbf{wahr}	\\
+			\hline
+			wahr 		& falsch 	& falsch	\\
+			\hline
+			falsch 		& wahr 	& falsch	\\
+			\hline
+			falsch 		& falsch 	& falsch	\\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|c|c||c| }
+			\hline
+			A 		&  B 		& A $\lor$ B	\\
+			\hline
+			wahr 		& wahr 	& wahr	\\
+			\hline
+			wahr 		& falsch 	& wahr	\\
+			\hline
+			falsch 		& wahr 	& wahr	\\
+			\hline
+			falsch 		& falsch 	& \textbf{falsch}	\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\end{block}
+	\pause	
+	\begin{exampleblock}{Aufgabe}
+		Stelle eine Wahrheitstabelle für den Ausdruck \((A\wedge B)\vee A\) auf.
+	\end{exampleblock}
+\end{frame}
+
+\begin {frame} 
+	\frametitle {Implikation}
+	\begin{center}
+		\begin{tabular}{|c|c||c| }
+			\hline
+			A 		&  B 		& $\Rightarrow$ 	\\
+			\hline
+			wahr 		& wahr 	& wahr	\\
+			\hline
+			wahr 		& falsch 	& \textbf{falsch}	\\
+			\hline
+			falsch 		& wahr 	& wahr	\\
+			\hline
+			falsch 		& falsch 	& wahr	\\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\begin{alertblock}{Wichtig!}
+		\begin{itemize}
+			\item A $\Rightarrow$ B ist äquivalent zu \(\neg A\vee B\)
+			\item D.h. man muss nur etwas tun, wenn A wahr ist. (Beweise)
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin {frame} 
+	\frametitle {Implikation}
+	\begin{center}
+		\begin{tabular}{|c|c||c| }
+			\hline
+			A 		&  B 		& $\Rightarrow$ 	\\
+			\hline
+			wahr 		& wahr 	& wahr	\\
+			\hline
+			wahr 		& falsch 	& \textbf{falsch}	\\
+			\hline
+			falsch 		& wahr 	& wahr	\\
+			\hline
+			falsch 		& falsch 	& wahr	\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{exampleblock}{Aufgabe}
+		Finde für F einen äquivalenten Ausdruck, in dem A und B jeweils höchstens einmal vorkommen.
+		\begin{displaymath}
+			F = (A\Rightarrow B) \Rightarrow ((B\Rightarrow A) \Rightarrow B)
+		\end{displaymath}
+	\end{exampleblock}
+\end{frame}
+
+\section{Relationen}
+
+\subsection{Kartesisches Produkt}
+\begin {frame}
+	\frametitle {Kartesisches Produkt}
+	\begin{block}{Definition}
+		\(A\times B = \{(a,b)|a\in A \wedge b\in B\}\)\\
+		Die Menge aller geordneten Paare (a,b) mit a aus A und b aus B
+	\end{block}
+	\pause
+	\begin{exampleblock}{Aufgaben}
+		\begin{itemize}
+			\item Berechne \(\{a,b\} \times \{1,2,3\}\).\\
+			\uncover<2->{ \(\{(a,1),(a,2),(a,3),(b,1),(b,2),(b,3)\}\) }
+			\item Wieviele Elemente hat \(\{\alpha,\beta,\gamma,\delta\} \times \{42,43,44\}\)?\\
+			\uncover<3->{12}
+			\item Was ist \(\emptyset \times M\)?\\
+			\uncover<4->{\(\emptyset\)}
+		\end{itemize}
+	\end{exampleblock}
+\end {frame}
+
+\subsection{Relationen}
+\begin{frame}
+	\frametitle{Relationen}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Eine Teilmenge \(R\subseteq A \times B\) heißt (binäre) Relation von A in B.
+			\item Wenn A = B, spricht man von einer Relation auf der Menge A.
+			\item Statt (a,b) $\in$ R kann man auch a R b schreiben bzw. statt \((a,b) \in R_{\geq}\) auch \(a \geq b\).
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{exampleblock}{Aufgabe}
+		Wie ist die Kleiner-Gleich-Relation \(R_{\leq}\) auf der Menge M = \{1,2,3\} formell definiert?\\
+	\pause
+		\uncover<2->{\(R_{\leq}=\{(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)\}\)}
+	\end{exampleblock}
+\end{frame}
+
+\begin {frame}
+	\frametitle {Eigenschaften von Relationen}
+	\begin {tabular} {l l}
+		\textbf {linkstotal} 			& eine Relation R $ \subseteq $ A x B ist linkstotal wenn gilt: \\
+							& $ \forall $ a $ \in $ A, $ \exists $ b $ \in $ B : ( a , b ) $ \in $ R \\
+		\\
+		\textbf {rechtseindeutig} 		&eine Relation R $ \subseteq $ A x B ist rechtseindeutig wenn gilt: \\
+							& $ \forall $ a $ \in $ A, $ \forall $ b , c $ \in $ B : \\ 
+							& ( a , b ) $ \in $ R $ \land $ ( a , c ) $ \in $ R $\Rightarrow$ b = c \\
+		\\
+		\textbf {rechtstotal } 		& eine Relation R $ \subseteq $ A x B ist rechtstotal wenn gilt: \\
+							& $ \forall $ b $ \in $ B, $ \exists $ a $ \in $ A : ( a , b ) $ \in $ R \\
+		\\
+		\textbf {linkseindeutig} 		&eine Relation R $ \subseteq $ A x B ist linkseindeutig wenn gilt: \\
+							& $ \forall $ a , c $ \in $ A, $ \forall $ b $ \in $ B : \\ 
+							& ( a , b ) $ \in $ R $ \land $ ( c , b ) $ \in $ R $\Rightarrow$ a = c \\
+	\end {tabular}
+\end {frame}
+
+\begin {frame}
+	\frametitle {Eigenschaften von Relationen}
+	\begin {tabular} {l l}
+		\textbf {linkstotal} 			& Jedes Element aus A hat mindestens einen Partner\\  &in B \\
+		\\
+		\textbf {rechtseindeutig} 		& Jedes Element aus A hat höchstens einen Partner\\ & in B \\ \\
+		\\
+		\textbf {rechtstotal } 		& Jedes Element aus B hat mindestens einen Partner\\ & in A
+		\\
+		\\
+		\textbf {linkseindeutig} 		& Jedes Element aus B hat höchstens einen Partner\\&  in A 
+		\\
+	\end {tabular}
+\end {frame}	
+
+\begin {frame}
+	\frametitle{Eigenschaften von Relationen}
+	 \begin{exampleblock}{Aufgaben}
+		Sind folgende Relationen links-/rechtstotal, links-/rechtseindeutig?
+		\begin{itemize}
+			\item Die Gleichheitsrelation \(R_{=}\) auf $\mathbb R$
+			\item Die Kleinerrelation \(R_{<}\) auf $\mathbb R$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\subsection{Funktionen/Abbildungen}
+\begin {frame}
+	\frametitle{Funktionen/Abbildungen}
+	\begin{block}{Definition}
+		Eine Relation, die linkstotal und rechtseindeutig ist, nennt man Funktion oder Abbildung. \\
+		Sei f: A $\rightarrow$ B eine Funktion. Dann ist:
+		\begin{itemize}
+			\item A der Definitionsbereich
+			\item B der Zielbereich
+			 \item f(A) der Bildbereich von f
+		\end{itemize}
+	\end{block}
+	\begin{exampleblock}{Aufgabe}
+		Was bedeutet es wenn der Bildbereich gleich dem Zielbereich ist?
+	\end{exampleblock}
+\end {frame}
+
+\begin {frame}
+	\begin{block}{Eigenschaften von Funktionen/Abbildungen}
+		\begin{itemize}
+			\item linkseindeutig $\rightarrow$ injektiv
+			\item rechtstotal $\rightarrow$ surjektiv
+			\item injektiv + surjektiv = bijektiv
+		\end{itemize}
+	\end{block}
+	\begin{exampleblock}{Aufgaben}
+		Sind folgende Funktionen injektiv, surjektiv oder bijektiv?
+		\begin{itemize}
+			\item \(f:\mathbb R \rightarrow \mathbb R, x \mapsto x\)
+			\item \(g:\mathbb N_{0} \rightarrow \mathbb N_{0}, x \mapsto 2x\)
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Fragen}
+	\begin{center}
+		Fragen?!
+	\end{center}
+\end{frame}
+
+\begin{frame}{Fragen}
+	\frametitle{Unnützes Wissen}
+	\begin{center}
+		Anatidaephobia ist die Angst von einer Ente beobachtet zu werden.
+	\end{center}
+\end{frame}
+\end{document}

@@ -1,0 +1,180 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+\newcommand{\tief}[1]{\ensuremath{\mathrm{#1}}}
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 4}
+\date{17.November 2011}
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Wiederholung}
+
+\begin{frame}
+	\frametitle{Wiederholung}
+	\begin{block}{Übungsblatt}
+		\begin{itemize}
+			\item 3.1
+				\begin{itemize}
+					\item Naaaja
+					\item Was war denn eigentlich zu zeigen?
+				\end{itemize}
+			\item Sonstiges
+				\begin{itemize}
+					\item 3.2 und insb. 3.5...
+				\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Algorithmen}
+\subsection{Definition}
+
+\begin{frame}
+	\frametitle{Definition}
+	\begin{block}{Informell}
+		Eine von einer Maschine abarbeitbare Anleitung, ein
+		bestimmtes Problem zulösen
+	\end{block}
+	\begin{block}{Eigenschaften}
+		\pause
+		\begin{itemize}
+ 			 \item endliche Beschreibung
+ 			 \item elementare Anweisungen
+ 			 \item Determinismus
+ 			 \item zu \emph{endlicher} Eingabe wird \emph{endliche} Ausgabe erzeugt
+ 			 \item endliche viele Schritte
+ 			 \item funktioniert für beliebig große Eingaben
+			  \item Nachvollziehbarkeit/Verständlichkeit für jeden (der mit der Materie
+ 			 vertraut ist)
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{Pseudocode}
+\begin{frame}
+	\begin{block}{Pseudocode}
+		\begin{tabular}[c]{ll}
+		Zuweisung & x $\leftarrow$ a \\
+		&\\
+		for-Schleife & Schleifenvariable $\leftarrow$ Startwert to Endwert \\
+		& do \\
+		& \begin{quote} Schleifenrumpf \end{quote}\\
+		& od \\
+		\end{tabular}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Division}
+		\begin{tabular}[c]{ll}
+		x div y & Ergebnis der ganzzahligen Division von x durch y \\
+		&\\
+		x mod y & Rest der ganzzahligen Division von x durch y \\
+		& Es gilt also stets 0 $\leq $ x mod y $\textless $ y \\
+		&\\
+		Satz & es gilt stets \\
+		& x = y ( x div y ) + ( x mod y ) \\
+		\end{tabular}
+	\end{block}
+\end{frame}
+
+\subsection{Schleifeninvariante}
+\begin{frame}
+	\frametitle{Schleifeninvariante}
+	\begin{block}{Schleifeninvariante}
+		\begin{itemize}
+			\item arithmetische Aussage
+			\item betrifft alle interessanten Parameter der Schleife
+			\item gilt immer
+			\begin{itemize}
+				\item vor dem ersten Schleifendurchlauf
+				\item nach jedem einzelnen Schleifendurchlauf
+				\item nach Ende der Schleife
+			\end{itemize}		
+		\end{itemize}
+	\end{block}
+	
+	\begin{block}{Beweis}
+		Der Beweis einer Schleifeninvariante \\ 
+		ist der häufig durch Vollständige Induktion Möglich
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Schleifeninvariante}
+	\begin{block}{Aufgabe}
+ 		S$_0$ $\leftarrow$ a \\
+ 		Y$_0$ $\leftarrow$ b \\
+		for i$\leftarrow$0 to b-1 \\
+		do \\
+		\begin{quote}
+			S$_{i+1}$ $\leftarrow$ S$_i$ + 1 \\
+			Y$_{i+1}$ $\leftarrow$ Y$_i$ - 1
+		\end{quote}
+		od \\
+		Was tut dieser Algorithmus ?
+	\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Schleifeninvariante}
+	\begin{block}{Aufgabe}
+		Wir wählen a = 6 und b = 4 \bigskip \\
+		\begin{tabular}[c]{| c | c | c |}
+			\hline
+			& S$_i$ & Y$_i$ \\
+			\hline
+			\hline
+			i = 0 & & \\
+			\hline
+			i = 1 & & \\
+			\hline
+			i = 2 & & \\
+			\hline
+			i = 3 & & \\
+			\hline
+			i = 4 & & \\
+			\hline
+		\end{tabular}
+		\bigskip \\
+		Was wäre eine Mögliche Schleifeninvariante?\\
+		\pause
+		$\forall i \in \tief{\mathbb{N}_0}: i \leq b \Rightarrow S_i + Y_i = a + b$
+	\end{block}
+\end{frame}
+
+\section{Fragen}
+\begin{frame}
+	\begin{center}
+		Noch Fragen?
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Unnützes Wissen}
+	\begin{center}
+		In Nordsibirien ist es Brauch, dass verliebte Frauen ihren Angebeteten mit Feldschnecken bewerfen.
+	\end{center}
+\end{frame}
+
+\end {document}

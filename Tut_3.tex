@@ -1,0 +1,278 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 2}
+\date{10.November 2011}
+
+\title {GBI Tutorium NR: 3}
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Wiederholung}
+
+\begin{frame}
+	\frametitle{Letztes Übungsblatt}
+		\begin{block}{Vollständige Induktion}
+			\begin{itemize}
+				\item Insgesamt sehr gut
+				\item Reihenfolge bei Vollständiger Induktion von rekursiv zu geschlossen
+				\item Induktionsanfang
+			\end{itemize}
+		\end{block}
+		\begin{block}{Sonstiges}
+			\begin{itemize}
+				\item Prädikatenlogik - naja
+				\item Aufg. 2 insgesamt gut
+				\item Abschreiben (Drache)
+				\item Sorgfalt...
+			\end{itemize}
+		\end{block}
+\end{frame}
+
+\section{Formale Sprachen}
+\subsection[Mengen]{Mengen}
+\begin{frame}
+	\frametitle{Mengenoperationen}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item $ M_1 \cup M_2 = \{x \mid x \in M_1 \lor x \in M_2\} $  :Vereinigung
+			\item $ M_1 \cap M_2 = \{ x \mid x \in M_1 \land x \in M_2 \} $  :Schnitt
+			\item $ M_1 \setminus M_2 = \{x \mid x \in M_1 \land x \notin M_2 \}$ :Differenz
+		\end{itemize}
+	\end{block}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beispiele, Aufgaben}
+	\begin{block}{Beispiele}
+		\begin{itemize}[<+->]
+  			\item $\{1,2,3\} \cup \{2,3,4\} = \{1,2,3,4\}$ \newline \visible<2->{Kein
+  			Element kann in einer Menge ''doppelt'' vorkommen}
+  			\item $\{1,2,3\} \backslash \{2,3,4\} = \{1\}$  
+		\end{itemize}
+	\end{block}
+	\uncover<3->{
+   \begin{block}{Aufgaben}
+\begin{itemize}
+  \item $M \cup \{\} = ?$
+  \item $M \cap \{\} = ?$
+  \item $\{1,2,3\} \cap \{5,6,7\} = ?$
+\end{itemize}
+\end{block}}
+\end{frame}
+
+\subsection[Definition]{Definition}
+\begin{frame}
+\frametitle{formale Definition}
+\begin{block}{Formale Sprachen}
+Eine formale Sprache L (Über einem Alphabet A) ist eine
+Teilmenge : $L \subseteq A$*
+\newline \newline \emph{Das heisst}: Eine Sprache über einem Alphabet ist eine
+Teilmenge der Menge aller möglicher Wörter aus Zeichen
+des Alphabetes
+\end{block}
+\begin{block}{Wichtig!}
+\begin{itemize}[<+->]
+  \item $abb$ ist ein Wort
+  \item $\{abb\}$ ist eine formale Sprache die nur aus dem Wort $abb$ besteht
+  \item daraus folgt: \{$abb$\}* gibt es, $abb$* (noch) nicht
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beispiele}
+\begin{example}
+Sprache aller gültigen Java-Schlüsselwörter
+\begin{itemize}[<+->]
+  \item Alphabet: $A = \{a,b,c\ldots,z\}$
+  \item Sprache: $L =   \{class, if, else, int, public, \ldots\}$
+\end{itemize}
+\end{example}
+\begin{example}
+\begin{itemize}[<+->]
+  \item Alphabet: $A = \{a,b\}$
+  \item Sei L die Sprache über A in denen das Teilwort ''$ab$'' nirgends vorkommt
+  \item $L = \{a,b\}$*$\backslash\{w_{1}abw_{2}|w_{1},w_{2}\in\{a,b\}$*
+  \item Vereinfacht:
+  \visible<7->{\item $L = \{w_{1}w_{2}|w_{1} \in \{b\}$*$, w_{2} \in
+  \{a\}$*}\}
+\end{itemize}
+\end{example}
+\end{frame}
+
+\section{Konkatenation}
+\subsection[Konkatenation formaler Sprachen]{Konkatenation formaler Sprachen}
+\begin{frame}
+\frametitle{Produkt von Sprachen}
+\begin{block}{Definition}
+$L_{1}\cdot L_{2} = \{w_{1}w_{2}|w_{1} \in L_{1} \land w_{2} \in L_{2}\}$
+\end{block}
+\begin{example}
+Von gerade eben: formale Sprache aller Wörter über $A=\{a,b\}$ in denen das
+Teilwort $"ab"$ nirgends vorkommt: \newline
+Kann man jetzt auch so schreiben: $L = \{b\}$*$\{a\}$*
+\end{example}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beispiele}
+\begin{example}
+\begin{itemize}[<+->]
+  \item Sei $L_{1} = \{KARTOFFEL, NUDEL\}$
+  \item Sei $L_{2} = \{SALAT, AUFLAUF\}$
+  \item Was ist $L_{1} \cdot L_{2} ?$
+  \visible<4->{\{KARTOFFELSALAT, NUDELSALAT, KARTOFFELAUFLAUF, NUDELAUFLAUF\}}
+\end{itemize}
+\end{example}
+
+\begin{example}
+\visible<5->{Formale Sprache aller legalen Ganzzahlen:}
+\begin{itemize}[<6->]
+  \item Alphabet: $A = \{0,1,\ldots,9\}$
+  \item $L_{G} = A \cdot A$*
+  \item Was fehlt?
+  \visible<7->{\item die negativen Zahlen!}
+  \visible<8->{\item besser: $L_{G} = \{\epsilon,-\} \cdot A \cdot A$*}
+\end{itemize}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ein letztes Beispiel}
+\begin{itemize}[<+->]
+  \item Sei $L_{1} = \{a^{n}|n \in \mathbb N_{0}\}$
+  \item Sei $L_{2} = \{b^{n}|n \in \mathbb N_{0}\}$
+  \item $L_{1} \cdot L_{2} = ?$
+  \item $ L_1L_2 = \{ a^{k}b^{m} \mid k \in \mathbb N_{0} \land m \in \mathbb N_{0}  \} = \{ a\}^{*}\{ b\}^{*}$
+\end{itemize}
+\end{frame}
+
+\section{Konkatenationsabschluss}
+\subsection[Der Konkatenationsabschluss]{Der Konkatenationsabschluss}
+\begin{frame}
+\frametitle{Potenzen von Sprachen}
+\begin{block}{Definition}
+\begin{itemize}
+  \item $L^{0} = \{\epsilon\}$
+  \item $L^{i+1} = L^{i} \cdot L$
+\end{itemize}
+\end{block}
+\begin{example}
+Sei $L = \{a\}$*$\{b\}$*
+\begin{itemize}[<+->]
+  \item $L^{0} = \{\epsilon\}$
+  \item $L^{1} = \{\epsilon,a,b,aa,ab,bb,aaa\ldots\}$
+  \item $L^{2} = \{\epsilon,aabbbaaaaabb,aaabbab,aaaaa,bbbbbb\ldots\}$
+  \item usw.
+\end{itemize}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\frametitle{Der Konkatenationsabschluss}
+\begin{block}{Definition}
+\begin{itemize}[<+->]
+  \item $L^{+} = \bigcup\limits_{i = 1}^{\infty} L^{i}$
+  \item $L^{*} = \bigcup\limits_{i = 0}^{\infty} L^{i}$
+\end{itemize}
+\end{block}
+
+\begin{example}
+\begin{itemize}[<+->]
+  \item $L = \{a\}$*$\{b\}$*
+  \item $L^{*}$ ?   \visible<5->{ = $\{a,b\}$*}
+  \visible<6->{\item ``Beweis'': Zerhacke beliebiges aber festes $w \in
+  \{a,b\}$* an allen Stellen an denen auf ein b ein a folgt. Die entstehenden
+  Teilworte sind aus $L$}
+\end{itemize}
+\end{example}
+\end{frame}
+
+
+\section{Beweisführung}
+\subsection{Beweise}
+
+\begin{frame}
+\frametitle{Übung}
+\begin{block}{Beweise}
+Beweise: $L^{*} \cdot L = L^{+}$
+\end{block}
+\begin{block}{Hinweis}
+Seien A und B zwei Mengen
+\newline $A \subseteq B \ \land \ B \subseteq A \Rightarrow A = B$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beweis}
+\begin{block}{$L^{*} \cdot L \subseteq L^{+}$}
+Wenn $w \in L^{*} \cdot L$, dann $w = w_{1}w_{2}$ mit $w_{1} \in L^{*}$ und
+$w_{2} \in L$ \newline
+Also existiert ein $i \in \mathbb N_{0}$ mit $w_{1} \in L^{i}$ \newline
+Also $w = w_{1}w_{2} \in L^{i} \cdot L = L^{i+1}$ \newline
+Da $i+1 \in \mathbb N_{+}$, ist $L^{i+1} \subseteq L^{+}$, also $w \in L^{+}$
+\end{block}
+
+\begin{block}{$L^{*} \cdot L \supseteq L^{+}$}
+Wenn $w \in L^{+}$, dann existiert ein $i \in \mathbb N_{+}$ mit $w \in L^{i}$
+\newline Da $i \in \mathbb N_{+}$ ist $i = j + 1$ für ein $j \in \mathbb N_{0}$
+\newline Also ist für ein $j \in \mathbb N_{0}$: $w \in L^{j+1} = L^{j} \cdot L$
+\newline Also $w = w_{1}w_{2}$ mit $w_{1} \in L^{j}$ und $w_{2} \in L$ \newline
+Wegen $L^{j} \subseteq L^{*}$ ist $w = w_{1}w_{2} \in L^{*} \cdot L$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Zusammenfassung}
+\begin{block}{2 Sprachen}
+\begin{itemize}
+  \item $L_{1} = \{a^{k}b^{m}|k,m \in \mathbb N_{0} \land \ k$ mod 2 = 0 $\land
+  \ m$ mod 3 = 1\}
+  \item $L_{2} = \{a^{k}b^{m}|k,m \in \mathbb N_{0} \land \ k$ mod 2 = 1 $\land
+  \ m$ mod 3 = 0\}
+\end{itemize}
+\end{block}
+\begin{block}{Aufgabe}
+Was ist?
+\begin{itemize}
+ \item $ L = L_1 \cdot L_2$
+ \item $ L = L_1 \cap L_2$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin {frame}
+\frametitle {Ende}
+	\begin {center}
+	Fragen?! \\
+	\end {center}
+\end {frame}
+
+\begin{frame}
+		\frametitle{Unnützes Wissen}
+		\begin{block}{}
+			\begin{center}
+				Folgendes Gesetz gilt in Texas: Wenn sich zwei Züge an einem Bahnübergang begegnen, müssen beide Züge halten. Jeder der beiden Züge muss so lange stehen 					bleiben, bis der jeweils andere vorbeigefahren ist. 
+			\end{center}
+		\end{block}{}
+\end{frame}
+
+\end {document}

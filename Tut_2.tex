@@ -1,0 +1,282 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 2}
+\date{3.November 2011}
+
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Wiederholung}
+
+\begin{frame}
+	\frametitle{Letztes \"Ubungsblatt}
+	\begin{block}{Aufgabe 1.2}
+		Tafel
+	\end{block}
+
+	\begin{block}{Aufgabe 1.3}
+	        	\begin{itemize}
+			\item M kann unendlich sein!
+			\item einfache Lösung: Gegenbeispiel
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Aufgabe 1.4a}
+		\begin{itemize}
+			\item oft richtige Antwort
+			\item Begründungen teilweise seeehr fragwürdig
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin {frame}
+	\frametitle {Wiederholung}
+	\begin{block}{Alphabet}
+		Ein Alphabet ist eine:
+		\pause
+        		\begin{itemize}
+			\item endliche
+			\item nicht leere
+			\item Menge von Zeichen
+		\end{itemize}
+	\end{block}
+\end {frame}
+
+\section{Prädikatenlogik} 
+\frame {
+	\frametitle{Prädikatenlogik}
+	Mit der Prädikatenlogik können wir viele Sachverhalte kurz und präzise darstellen.
+	\pause
+	
+	\begin{block}{}
+	Sei $W$ die Menge der möglichen Wetterformen und $S$ die Menge aller Studenten.\\
+	$\heartsuit \subseteq$ $S \times W$ beschreibt "`Student liebt das Wetter"'
+	\pause
+	\begin{itemize}
+		\item $\neg\exists s \in S$ : $\forall w \in W$ : $s \heartsuit w$\\
+			\pause
+			Es existiert kein Student, der alle Wetterformen liebt.
+			\pause
+		\item $\exists w \in W$ : $\forall s \in S$ : $s \heartsuit w$\\
+			\pause
+			Es existiert eine Wetterform, die jeder Student liebt.
+			\pause
+		\item $\forall s \in S$ : $\exists w \in W$ : $s \heartsuit w$\\
+			\pause
+			Für alle Studenten existiert eine Wetterform, die er liebt.
+	\end{itemize}
+	\end{block}
+}
+
+\section{W\"orter}
+\begin{frame}
+	\frametitle{Wörter}
+	\begin{block}{Vorbemerkung}
+		\begin{itemize}
+			\item $\mathbb G_n$  = \pause \{ i $ \in $ $\mathbb N_0$ $ | $ 0 $ \le $ i $ \land $ i $ < $ n \} 
+			\item $\mathbb G_0$ = \pause \{\}
+		\end{itemize}
+	\end{block}
+	\begin{block}{In Worten}
+		Wörter sind eine Surjektive Abbildung mit w: $\mathbb G_n$  $\rightarrow$ B \subset A \\
+		\begin{example}
+		Das Wort w = hallo ist eine Abbildung  \\ 
+		 w: $\mathbb G_5$ $\rightarrow$ \{ a,h,l,o \} mit \\
+		 w(0) = h w(1) = a w(2) = l w(3) = l w(4) = o
+		\end{example}
+	\end{block}
+\end{frame}
+
+\subsection{Das leere Wort}
+\begin{frame}
+	\frametitle{Das leere Wort}
+	\begin{block}{Das Wort}
+		\begin{itemize}
+			\item Das leere Wort wird mit dem $\epsilon$ dargestellt, und ist eine \\ 
+				Abbildung von \{\} $\rightarrow$ \{\} \\
+			\item \{\} x \{\} = \{\} \\
+			\item $\epsilon$ hat die Länge 0 ist aber dennoch ein Element. \\
+			\item wenn M = \{$\epsilon$\} dann ist M $\not=$ $\emptyset$ \\
+			\item $|$M$|$ = 1
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{Konkatenation}
+\begin{frame}
+	\frametitle{Konkatenation von Wörtern}
+	\begin{block}{Konkatenation von Wörtern}
+		\begin{itemize}
+			\item eine Konkatenation ist eine Verknüpfung mehrerer Zeichen(ketten) und wird als $\cdot$ dargestellt \\
+			\item z.B. kann man hallo als h $\cdot$ a $\cdot$ l $\cdot$ l $\cdot$ o dargestellt werden.\\
+			\item der Punkt ist allerding nicht notwendig, er kann wie das Malzeichen bei der Multiplikation weggelassen werden. \\
+			\item mehrere Wörter können auch zu einem weiteren konkateniert werden.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Vollst\"andige Induktion}
+\subsection[Einf\"uhrung]{Einf\"uhrung}
+	
+\begin{frame}
+	\frametitle{Ein beliebiger \"Uberblick}
+	\begin{block}{Was ist die vollst\"andige Induktion?}
+		Eine oft benutzte sehr m\"achtige Beweistechnik
+	\end{block}
+	\begin{block}{Vorgehen?}
+		\begin{enumerate}
+  			\item Die Behauptung f\"ur einen ersten Wert beweisen
+		 	\item Annehmen dass die Behauptung f\"ur ``irgendeinen'' Wert gilt
+  			\item Behauptung ausgehend von dem bliebigen Wert f\"ur den n\"achsten Wert
+  			beweisen
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{So sollte es aussehen}
+	\begin{block}{Induktionsanfang}
+		\begin{itemize}
+ 			\item Beweis der Behauptung für einen (manchmal auch mehrere) ''Startwerte''
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Induktionsannahme}
+		\begin{itemize}
+  			\item F\"ur ein beliebiges aber festes x/k/n gelte: \ldots
+  			\item Wird im Induktionsschritt benutzt
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Induktionsschritt}
+		\begin{itemize}
+  			\item Ausgehend von x die Behauptung f\"ur $x + 1$ beweisen
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ein erstes Beispiel}
+	\begin{block}{Die Gaußsche Summenformel}
+		\begin{center}
+			$\sum\limits_{k=1}^{n}k  =  1 + 2 + 3 + 4 + \ldots + n =
+			\frac{n(n+1)}{2}$
+		\end{center}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beweis!}
+	\begin{block}{Induktionsanfang}
+		\begin{center}
+			$n = 1:$ \hspace{10mm}  $\sum\limits_{k=1}^{n}k$ = $\sum\limits_{k=1}^{1}k$ =  1
+			= $\frac{1(1+1)}{2}$ = $\frac{n(n+1)}{2}$ \hspace{15mm} \uncover<2->{$\Box$}
+		\end{center}
+	\end{block}
+
+	\uncover <3-> {
+	\begin{block}{Induktionsvorraussetzung}
+		\begin{center}
+			 F\"ur ein beliebiges aber festes n gelte: \\
+			$\sum\limits_{k=1}^{n}k = \frac{n(n+1)}{2}$
+		\end{center}
+	\end{block} }
+
+	\uncover <4-> {
+	\begin{block}{Induktionsschluss}
+		\begin{center}	
+		$n = 1:$ \hspace{10mm} 
+		$\sum\limits_{k=1}^{n+1}k = (n+1)+ \sum\limits_{k=1}^{n}k \stackrel{\mathrm{I.V.}}= 
+		(n+1)+\frac{n(n+1)}{2} $ \\
+		$= \frac{(n+1)(n+2)}{2}  $ \uncover<5->{$\Box$}
+		
+		\end{center}
+	\end{block} }
+\end{frame}
+
+\subsection[Aufgaben]{Aufgaben}
+\begin{frame}
+	\frametitle{Jetzt seid ihr dran}
+	\begin{block}{Eine Reihe}
+		\begin{itemize}
+  			\item $a_{0} = 0$
+  			\item $a_{n+1} = a_{n} + 2n + 1$
+		\end{itemize}
+	\end{block}
+	
+	\vspace{5mm}
+
+	\uncover<2-> 
+	{
+ 	\begin{block}{Zeige}
+	$a_n = n^2$
+	\end{block} 
+	}
+\end{frame}
+
+\begin{frame}
+\frametitle{Weiter gehts}
+	\begin{block}{Noch ne Reihe}
+		\begin{itemize}
+  			\item $a_{0} = 3$
+  			\item $a_{n+1} = a_{n} + 3$
+		\end{itemize}
+	\end{block}
+
+	\vspace{5mm}
+	\uncover<2->
+	{
+	\begin{block}{Zeige}
+		\begin{itemize}
+  			\item Ideen?
+  			\visible<3->{\item $a_{n} = 3(n+1)$}
+		\end{itemize}
+	\end{block}
+	}
+\end{frame}
+
+\begin{frame}
+\frametitle{Und jetzt mal was schweres}
+	\begin{block}{Aufgabe }
+		\begin{itemize}
+			\item $x_0$ = 0 \\
+			\item $\forall n \, \in \mathbb N_0 : x_{n+1} = x_n + (n+1)(n+2)$
+			\item Tipp: $x_1, x_2, x_3, x_4$ ausrechnen
+			\visible<2->{\item Wenn keine Idee: $ \frac{x(x+1)(x+2)}{3}$}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin {frame}
+\frametitle {Ende}
+	\begin {center}
+	Fragen?! \\
+	\end {center}
+\end {frame}
+
+\begin{frame}
+\frametitle{Unnützes Wissen}
+	\begin{center}		
+		Ein Liter Druckertinte von Hewlett Packard kostet mehr als ein Liter Chanel No. 5
+	\end{center}
+\end{frame}
+
+\end {document}
