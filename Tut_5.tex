@@ -96,10 +96,10 @@
 
 	\begin{block} {Definition }
 		\begin{itemize}
-			\item $R_\Rightarrow$ ist eine Relation. $R_\Rightarrow \subseteq V* \times V*$
+			\item $R_\Rightarrow$ ist eine Relation. $R_\Rightarrow \subseteq V^* \times V^*$
 			\item Wir schreiben $w_1 \Rightarrow w_2$ wenn $w_2$ aus $w_1$ abgeleitet werden kann (durch anwenden 					\textbf{einer} Produktionsregel). \\
 			Oder: $(w_1, w_2) \in R_\Rightarrow$
-			\item Wir schreiben $w_1 \Rightarrow * w_2$ wenn $w_2$ aus $w_1$ indirekt abgeleitet werden kann ( durch 					anwenden \textbf{mehrerer} Produktionsregeln nacheinander).
+			\item Wir schreiben $w_1 \Rightarrow^* w_2$ wenn $w_2$ aus $w_1$ indirekt abgeleitet werden kann ( durch 					anwenden \textbf{mehrerer} Produktionsregeln nacheinander).
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -135,7 +135,7 @@
 	\begin{block}{Aufgabe}
 	Gib L(G) f\"ur die folgende Grammatik an:
 	\begin{center}
-		G = ( \{ A, B, C\}, \{a, b, c\} A, P) \\
+		G = ( \{ A, B, C\}, \{a, b, c\}, A, P) \\
 		P = \{ A $\rightarrow$ B, \\
 			B $\rightarrow$ CC $\mid$a, \\
 			C $\rightarrow$ c
@@ -151,12 +151,12 @@
 \begin{frame}
 	\begin{block}{Aufgabe}
 		$ A = \{a,b\}$\\
-		$ L = \{a^kb^ma^{m-k} : m,k \in \mathbb{N}_0 \land M \ge k\} $
+		$ L = \{a^kb^ma^{m-k} : m,k \in \mathbb{N}_0 \land m \ge k\} $
 		\begin{itemize}
 			\item Gebe G an, sodass L(G) = L
 			\item Gebe Ableitungsbaum für aabbba an (mit G)
 			\item Gebe alle $n \in \mathbb{N}_0$ an, für die gilt $L \cap A^n \not= \{\}$
-			\item Sie $n$ so gewählt - wieviele Elemente enthält  $L \cap a^n$
+			\item Sie $n$ so gewählt - wieviele Elemente enthält  $L \cap A^n$
 		\end{itemize}
 	\end{block}
 \end{frame}
