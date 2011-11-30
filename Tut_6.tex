@@ -1,0 +1,194 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 6}
+\date{1.Dezember 2011}
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Wiederholung}
+\subsection{Übungsblatt}
+
+\begin{frame}
+	\frametitle{Letztes \"Ubungsblatt}
+	\begin{block}{Probleme}
+		\begin{itemize}
+			\item 5.1d) die Sprache mal genauer anschaun
+			\item 5.2 $G=(N,T,S,P)$...
+			\item 5.4 IA bei 0
+			\item Teamarbeit
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Übersetzung}
+\subsection{Zahlendarstellung}
+\frame {
+	\frametitle{Zahlendarstellung}
+	\begin{block}{Definition}
+	Definiere num$_{10}$(x).\\
+	\pause
+	\hfill\\
+	Sei Z$_{10}$ = $\{$0, 1, ..., 9$\}$, so definieren wir die Dezimaldarstellung von Zahlen so:\\
+	\hfill\\
+	Num$_{10}$($\epsilon$) = 0\\
+	$\forall w \in$ Z$_{10}^*$ $ \forall x \in$ Z$_{10}$: Num$_{10}$(wx) = 10 $\cdot$ Num$_{10}$(x) + num$_{10}$(x)
+	\end{block}
+}
+\frame {
+	\frametitle{Andere Zahlendarstellungen}
+	\begin{block}{Beispiele}
+	Man kann nun nicht nur Zahle des im Zahlensystem der Basis 10 berechnen, sondern auch Zahler einer beliebigen Basis k.\\
+	\hfill\\
+	\begin{block}{Beispielaufgaben}
+		\begin{itemize}
+			\item Num$_{2}$(101) = \pause 5
+			\item Num$_{5}$(431) = \pause 116
+			\item Num$_{8}$(12) = \pause 10
+		\end{itemize}
+	\end{block}
+	\end{block}
+	
+}
+
+\subsection{Homomorphismen}
+\frame {
+	\frametitle{Übersetzungen}
+	\begin{block}{Übersetzungen}
+	Wozu braucht man überhaupt Übersetzungen?\\
+	\pause
+	\begin{itemize}
+		\item Lesbarkeit
+		\item Kompression
+		\item Verschlüsselung
+		\item Fehlererkennung und Fehlerkorrektur
+	\end{itemize}
+	\end{block}
+}
+\frame {
+	\frametitle{Homomorphismen}
+	\begin{block}{Präfixe}
+	Präfixfreier Code: für keine zwei verschiedenen Symbole $x_1$, $x_2$ $\in$ A gilt: h($x_1$)
+	ist ein Präfix von h($x_2$).\pause
+	\\
+	\hfill\\
+	$\epsilon$-freier Homomorphismus\pause
+	\\
+	\hfill\\
+	Homomorphismus: Seien A und B zwei Alphabete.\\
+	$h: A \rightarrow B$ ist ein Homomorphismus, wenn gilt:\\
+	\begin{center}
+$h(\epsilon ) = \epsilon$\\
+	$\forall w \in A^*: \forall x \in A: h(wx) = h(w)h(x)$
+\end{center}
+\end{block}
+}
+
+\subsection{Huffman-Code}
+\frame {
+	\frametitle{Huffman-Code}
+	\begin{block}{Huffman}
+	Der Huffman-Code ist ein Code, der unter allen präfixfreien Codes zu den kürzesten Codierungen führt.\\
+	\hfill\\
+	Wichtig ist dafür, dass wir die Anzahl gewisser Symbole unseres zu codierenden Textes kennen.\\
+	\pause
+	\begin{itemize}
+		\item Für jedes zu kodierende Symbol erstellen wir einen Knoten, das das Symbol und seine Anzahl beinhaltet.
+		\item Nun nehmen wir die zwei Knoten mit der kleinsten Anzahl, zählen die Anzahlen zusammen und erstellen einen Baum mit dem neu erstellten Knoten als Wurzel
+		\item immersoweiter
+		\item Wir beschriften alle Kanten, die nach rechts gehen mit 1 und alle nach links mit 0. 
+	\end{itemize}
+	\end{block}
+}
+\frame {
+	\frametitle{Beispielaufgaben}
+	\begin{block}{\bf Wir haben acht Symbole a, b, c, d, e, f, g, h}
+		\begin{itemize}
+			\item Jedes Zeichen kommt einfach vor. Wie sieht der Huffman-Code aus?\\
+				Wie lang ist die Codierung von edcbahfg?\pause
+			\item a kommt einmal vor, b zweimal, c 4-mal, d 8-mal, e 16-mal, f 32-mal,
+g 64-mal, h 128-mal. Erstelle einen Huffman Baum.
+		\end{itemize}	
+	\end{block}
+}
+\frame {
+	\frametitle{Block-Codierung}
+	\begin{block}{Block-Codierung}
+	Man kann natürlich nicht nur einzelne Symbole codieren, sondern auch Symbolblöcke.\\
+	\hfill\\
+	Wie würdet ihr den Huffman-Code für das folgende Wort definieren:\\
+	$aaaaaabbbbbbccccccddddddaaadddddd$
+	\end{block}
+}
+\section{Übungen}
+\subsection{Übung 1}
+\frame {
+	\frametitle{Übung 1}
+	\begin{block}{Klausur SS 2010}
+	Gegeben sei dieser Baum. \pause
+	\begin{itemize}
+		\item Beschrifte die Kantes, sodass ein Huffman-Baum entsteht.
+		\item Gib die Huffman Codierung des Wortes cae an.
+		\item Gib paarweise verschiedene Häufigkeiten für a, b, c, d, e an, sodass sich bei der Huffman-Codierung obiger Baum entsteht.
+	\end{itemize}
+	\end{block}
+}
+\subsection{Übung 2}
+\frame {
+	\frametitle{Übung 2}
+	\begin{block}{Klausur WS 2009/2010}
+	 Gegeben sei das Alphabet A = $\{$a, b, c, d, e, f, g$\}$ und ein Wort w $\in$ A$^*$ in dem die Symbole mit den Häufigkeiten auf der Tafel vorkommen.
+	 	\begin{itemize}
+		\item Zeichne den Huffman-Baum 
+		\item Gib die Huffman-Codierung für bad an \pause
+		\item Fur k $\geq$ 1 sei ein Alphabet A = $\{$a$_0$, a$_1$, ... , a$_k$ $\}$ mit k + 1 Symbolen gegeben und ein Text, in dem jedes Symbol a$_i$ mit Häufigkeit 2$^i$ vorkommt für 0 $\geq$ i $\geq$ k.\\
+Geben Sie die Huffman-Codierungen aller Symbole a$_i$ an.
+	\end{itemize}
+	\end{block}
+}
+\subsection{Übung 3}
+\frame {
+	\frametitle{Übung 3}
+	\begin{block}{Klausur SS 2011}
+	Gegeben sei ein Wort über der Alphabet A = $\{$a, b, c, d $\}$ mit den gegebenen relativen Häufigkeiten. \pause
+	\begin{itemize}
+		\item Erstelle den Huffman-Baum für x = $\frac{1}{16}$
+		\item Für welche $x \in \mathbb{R}$ mit 0 $\geq x \geq \frac{1}{4}$ werden Wörter mit den angegebenen relaitven Häufigkeiten auf genau doppelt so lange Wörter über $\{$0,1$\}$ abgebildet?
+	\end{itemize}
+	\end{block}
+}
+
+\begin{frame}
+	\begin{center}
+		Fragen?
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Unnützes Wissen}
+	\begin{center}
+		Jack Nicholson fand erst mit 37 Jahren heraus, dass seine Schwester in Wahrheit seine Mutter ist.
+	\end{center}
+\end{frame}
+
+\end {document}
