@@ -1,0 +1,267 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 9}
+\date{22.Dezember 2011}
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Gro{\ss}-O-Notation} 
+\subsection{$\Theta$ - Ignorieren konstanter Faktoren}
+
+\begin{frame}
+	\frametitle{Die Relation $\asymp$}
+	\begin{block}{Definition}
+		F\"ur zwei Funktionen f,g : $ \mathbb N_0 \rightarrow  \mathbb R_0^+$ gilt $f \asymp  g$ genau dann, wenn gilt: \\
+		\begin{center}
+			$\exists c, c' \in \mathbb R_+ : \exists n_0 \in \mathbb N_0 : \forall n \ge n_0: cf(n) \le g(n) \le c'f(n)$
+		\end{center}
+	\end{block}
+
+	\begin{block}{Bedeutung}
+		f $\asymp$ g bedeutet f w\"achst asymptotisch genauso schnell wie g.
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Die Relation $\asymp$}
+	\begin{example}
+		\begin{itemize}
+			\item n $\asymp$ 2n \\
+				Beweis: W\"ahle $n_0 = 0, c = 1, c' = \frac{1}{2}$ \\
+				$\forall n \ge 0 : 1 \cdot n \le \frac{1}{2} \cdot 2 \cdot n$
+			\item $n^2 + 2n \asymp 5n^2 -2n +3$
+			\item $n^2 \asymp n^3$ \\
+				Das gilt nicht! Beweis: \\
+			\begin{itemize}
+				\item Es m\"usste gelten: $\exists \cdot \cdot \cdot : n^3 \le c \cdot n^2$
+				\item F\"ur n > 0 gilt: $n^3 \le c \cdot n^2 \Leftrightarrow n \le c$
+				\item Es gibt aber kein c $\in \mathbb R_+$ so dass gilt: $\forall n > n_0 : c \le n$
+			\end{itemize}
+		\end{itemize}
+	\end{example}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$\Theta$(f)}
+	\begin{block}{Definition}
+		$\Theta(f(n)) = \{ g(n) \mid f(n) \asymp g(n)\}$
+	\end{block}
+	\begin{block}{Bedeutung}
+		$\Theta$(f) ist also die Menge aller Funktionen die zu einer Funktion f(n) in Relation $\asymp$ stehen.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Die Relation $\asymp$}
+	\begin{block}{Allgemeine Rechenregeln f\"ur $\asymp$}
+		\begin{itemize}
+			\item $a \cdot f \asymp b \cdot f (a, b \in \mathbb R_+)$
+			\item $f \asymp g$, wenn f und g Polynome von gleichen Grad sind
+			\item $log_a(n) \asymp log_b(n)$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$log_a(n) \asymp log_b(n)$}
+	\begin{block}{ }
+		Wir wollen nun zeigen:
+		\begin{center}
+			$log_2(n) \asymp log_8(n)$
+		\end{center}
+	\end{block}
+	\begin{block}{Bemerkung}
+		Allgemein gilt f\"ur a $\in \mathbb R_+$ und $n \in \mathbb N_+$:
+		\begin{center}
+			$a^{log_a(n)} = n$
+		\end{center}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$log_a(n) \asymp log_b(n)$}
+	\begin{block}{Anschaulich}
+		\begin{table}
+   			\begin{tabular}{|r|r|r|r|r|r|r|}
+        				\hline
+     				   n          & 1 & 5 & 64 & 512 & 4096 & 32768 \\ \hline
+    				    $log_8(n)$ & 0 & 1 & 2  & 3   & 4    & 5     \\ 
+    				    $log_2(n)$ & 0 & 3 & 6  & 9   & 12   & 15    \\
+  			      	\hline
+    			\end{tabular}
+		\end{table}
+	\end{block}
+	\begin{block}{Beweis}
+		$n = 8^{log_8(n)} = (2^3)^{log_8(n)} = 2^{3log_8(n)}$ \\
+		Also gilt f\"ur $n \le 1: log_2(n) = log_2(2^{3log_8(n)}) = 3log_8(n)$ \\
+		$\Rightarrow log_2(n) = 3log_8(n)$\\
+		
+		Wegen af(n) $\asymp$ bf(n) folgt $log_2(n) \asymp log_8(n)$
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$log_a(n) \asymp log_b(n)$}
+	\begin{block}{Allgemein}
+		Man kann ebenso f\"ur allgemeine a und b zeigen, dass gilt:
+		\begin{center}
+			$log_a(n) \asymp log_b(n)$
+		\end{center}
+		Im Allgemeinen kann man also einfach $\Theta$(log(n)) schreiben, ohne die Basis anzugeben, weil sie egal ist.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$\preceq und \succeq$ }
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item $f \preceq g \Leftrightarrow \exists c \in \mathbb R_+ : \exists n_0 \in \mathbb N_0 :
+				 \forall n \ge n_o :  f(n) \le cg(n)$
+			\item $f \succeq g \Leftrightarrow \exists c \in \mathbb R_+ : \exists n_0 \in \mathbb N_0 :
+				 \forall n \ge n_0 : f(n) \ge cg(n)$
+		\end{itemize}
+	\end{block}
+	\begin{block}{Bedeutung}
+		f w\"achst asymptotisch mindestens / h\"ochstens genauso schnell wie g \\
+		(ab einem gewissen n)
+	\end{block}
+	\begin{example}
+		\begin{itemize}
+			\item $n^{10} \preceq n^{15}$ \\
+				W\"ahle z.B. $n_0 = 1, c = 1$
+			\item $n^4 - n^2 \succeq n^3$ \\
+				W\"ahle z.B. $n_0 = 2, c = 1$
+		\end{itemize}
+	\end{example}
+\end{frame}
+
+\begin{frame}
+	\frametitle{O und $\Omega$}
+	\begin{block}{Definitionen}
+		\begin{itemize}
+			\item $O(f(n)) = \{g(n) \mid g(n) \preceq f(n)\}$
+			\item $\Omega(f(n)) = \{g(n) \mid g(n) \succeq f(n)\}$
+		\end{itemize}
+	\end{block}
+	\begin{example}
+		\begin{itemize}
+			\item $n^{10} \in O(n^{15})$
+			\item $n^4 - n^2 \in \Omega(n^3)$
+		\end{itemize}
+	\end{example}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Keine totale Ordnung!}
+	\begin{block}{!!!Achtung!!!}
+		$\preceq$ und $\succeq$ bilden keine totale Ordnung! \\
+		Es gibt unvergleichbare Funktionen
+	\end{block}
+	\begin{block}{Beispiel}
+		f(n)=
+		$\begin{cases}
+			1,  & \text{wenn }n\text{ gerade,}\\
+ 		 	n, & \text{wenn }n\text{ ungerade.}
+		\end{cases}$ \\
+		g(n)=
+		$\begin{cases}
+			n,  & \text{wenn }n\text{ gerade,}\\
+ 		 	1, & \text{wenn }n\text{ ungerade.}
+		\end{cases}$ \\
+		Es gilt weder f $\preceq$ g, noch f $\succeq$ g und schon gar nicht f $\asymp$ g!
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Bemerkung}
+	\begin{block}{Es gilt}
+		$\Theta(f(n)) = O(f(n)) \cap \Omega(f(n))$ 
+	\end{block}
+\end{frame}
+
+\section{Aufgaben}
+\begin{frame}
+	\frametitle{Ja oder Nein?}
+	\begin{itemize}
+		\item $n \in \Theta(n)$ \pause
+		\item $n \in O(5n)$\pause
+		\item $n \in \Theta(5n^2)$\pause
+		\item $n \in O(5n)$\pause
+		\item $O(n) \in O(n^2)$\pause
+		\item $O(n) \subset O(n^2)$\pause
+		\item $O(n) \subset \Omega(n^2)$\pause
+		\item $\Theta(f(n)) \subset O(f(n))$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Algorithmus von Warshall}
+
+	\hspace{0.5 cm} \textbf{for} i $\leftarrow$ 0 \textbf{to} n - 1 \textbf{do} \\
+	\hspace{1 cm} \textbf{for} j $\leftarrow$ 0 \textbf{to} n - 1 \textbf{do} \\
+	\hspace{1.5 cm}	$W_{ij} \leftarrow 
+			\begin{cases}
+				1,  & \text{falls i = j}\\
+				 A_{ij}  & \text{falls i $\ne$ j}
+			\end{cases}$ \\
+	\hspace{1 cm} \textbf{od}\\
+	\hspace{0.5 cm} \textbf{od}\\
+	\vspace{0.5 cm}
+	\hspace{0.5 cm} \textbf{for} k $\leftarrow$ 0 \textbf{to} n - 1 \textbf{do} \\
+	\hspace{1 cm} \textbf{for} i $\leftarrow$ 0 \textbf{to} n - 1 \textbf{do} \\
+	\hspace{1.5 cm} \textbf{for}j $\leftarrow$ 0 \textbf{to} n - 1 \textbf{do} \\
+	\hspace{2 cm} $W_{ij} \leftarrow max( W_{ij}, min(W_{ik}, W_{kj}) )$\\
+	\hspace{1.5 cm} \textbf{od}	\\
+	\hspace{1 cm} \textbf{od}	\\
+	\hspace{0.5 cm} \textbf{od}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Quicksort}
+	\begin{tabbing}
+	\textbf{quick}\=\textbf{sort}\=(links, rechts)\\
+     	\>\textbf{if} (links $<$ rechts) \textbf{do}\\
+         	\> \>teiler := teile(links, rechts)\\
+         	\> \>quicksort(links, teiler-1)\\
+         	\> \>quicksort(teiler+1, rechts)\\
+     	\>\textbf{od}
+	\end{tabbing}
+\end{frame}
+
+\begin {frame}
+\frametitle {Ende}
+	\begin {center}
+		Noch Fragen?
+	\end {center}
+\end {frame}
+
+\begin {frame}
+\frametitle {Unnützes Wissen}
+	\begin {center}
+		Weihnachten wurde 1647 vom englischen Parlament offiziell abgeschafft.
+	\end {center}
+\end {frame}
+
+\end {document}
