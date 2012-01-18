@@ -1,0 +1,116 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 11}
+\date{19.Januar 2012}
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Reguläre Ausdrücke}
+
+\begin{frame}
+	\frametitle{Reguläre Ausdrücke}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item sei A ein Alphabet, das kein Zeichen aus Z enthält
+			\item sei Z das Alphabet $Z = \{ \mid , (,), \ast , \emptyset \}$
+			\item regulärer Ausdruck über A ist eine Zeichenfolge über dem Alphabet A 	$\cup $ Z, die folgenden Vorschriften genügt:
+			\pause
+				\begin{itemize}
+					\item $\emptyset$ ist ein regulärer Ausdruck
+					\pause
+					\item Für jedes x $\in$ A ist x ein regulärer Ausdruck
+					\pause
+					\item wenn $R_1$ und $R_2$ reguläre Ausdrücke, dann auch $(R_1 \mid R_2),(R_1 R_2)$ und $(R_1 \ast )$
+				\end{itemize}
+				\pause
+			\item die von einem regulären Ausdruck R beschriebene formale Sprache ist $<R>$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Reguläre Ausdrücke}
+	\begin{block}{Eigenschaften}
+		\begin{itemize}
+			\item $R \ast \ast = $ \pause $R\ast$
+			\item $<R> = \{ \epsilon \} \Rightarrow R =$ \pause $ \emptyset \ast $
+			\item Sei $L = <R>$, dann gilt
+				\begin{itemize}
+					\item $L^{\ast} = $ \pause $<(R) \ast >$
+					\item $L^+ = $ \pause $<R(R) \ast > $
+				\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Reguläre Ausdrücke}
+	\begin{block}{Gebe regulären Ausdruck an $(A = \{ a,b \})$}
+		\begin{itemize}
+			\item Alle Wörter in denen das Teilwort abb vorkommt
+			\item Die Sprache aller Wörter, in denen mindestens drei b vorkommen
+			\item Die Sprache aller Wörter, in denen nirgends das Teilwort ab vorkommt
+			\item $ L = \{ a^n b^n \mid n \in \mathbb{N} \} $
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Rechtslineare Grammatiken}
+\begin{frame}
+	\frametitle{Motivation}
+	\begin{itemize}
+		\item Regulärer Ausdruck und endlicher Akzeptor sind äquivalent
+		\pause
+		\item Kontextfreie Grammatik ''kann mehr'' als regulärer Ausdruck und endlicher Akzeptor
+		\pause
+		\item Einführung einer eingeschränkten Version der Grammatik
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item $G = ( N,T,S,P)$ wie gehabt
+			\item $\forall (w_1 \rightarrow w_2) \in P : (w_1 \in N) \land (w_2 \in \{ \epsilon \} \cup T \cup TN)$
+			\pause
+			\item Bei jeder Projektion steht rechts nur das leere Wort, ein Terminalsymbol oder ein Terminalsymbol gefolgt von einem einzigen Nichtterminalsymbol sein
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin {frame}
+\frametitle {Ende}
+	\begin {center}
+		Noch Fragen?
+	\end {center}
+\end {frame}
+
+\begin {frame}
+\frametitle {Unnützes Wissen}
+	\begin {center}
+		Architektur war von 1912 bis 1948 eine olympische Disziplin
+	\end {center}
+\end {frame}
+
+\end {document}

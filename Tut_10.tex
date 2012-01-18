@@ -1,0 +1,119 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+
+\usepackage{hyperref}
+
+\usetheme{Warsaw}
+\usecolortheme{default}
+
+
+\author{Tristan Schnell}
+\title{GBI-Tutorium 10}
+\date{12.Januar 2012}
+
+\begin{document}
+
+\begin {frame}
+	\titlepage
+\end {frame}
+
+\begin {frame}
+	\frametitle {Inhaltsverzeichnis}
+	\tableofcontents
+\end {frame}
+
+\section{Master-Theorem}
+
+\begin{frame}
+	\frametitle{Quicksort}
+	\begin{tabbing}
+	\textbf{quick}\=\textbf{sort}\=(links, rechts)\\
+     	\>\textbf{if} (links $<$ rechts) \textbf{do}\\
+         	\> \>teiler := teile(links, rechts)\\
+         	\> \>quicksort(links, teiler-1)\\
+         	\> \>quicksort(teiler+1, rechts)\\
+     	\>\textbf{od}
+	\end{tabbing}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Master-Theorem}
+	\begin{block}{Bietet}
+		Einfache Lösung für Gleichungen der Form:\\
+		$a\cdot T(n/b) +f(n)$\\
+		\pause \bigskip
+		Geht leider nicht immer
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Master-Theorem}
+	\begin{block}{Ein paar Aufgaben}
+		\begin{itemize}
+			\item $T(n) = 9\cdot T(n/3) + n^2 + 2n + 1$
+			\item $T(n) = \sqrt{3}\cdot T(n/2) + \log{n}$
+			\item $T(n) = 4\cdot T(n/4) + n \log{n}$
+			\item $T(n) = 2^n\cdot T(n/2) + n^n$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Automaten}
+
+\begin{frame}
+	\frametitle{Automaten}
+	\begin{block}{Mealy Automaten}
+		\begin{itemize}
+			\item eine endliche Zustandsmenge Z
+			\item einen Anfangszustand $z_0$ $\in$ Z
+			\item ein Eingabealphabet X
+			\item eine Zustandsüberführungsfunktion f: Z x X $\rightarrow$ Z
+			\item ein Ausgabealphabet Y
+			\item eine Ausgabefunktion g : Z x X $\rightarrow$ Y$^\ast$
+		\end{itemize}	
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Automaten}
+	\begin{block}{Moore Automaten}		
+		\begin{itemize}
+			\item eine endliche Zustandsmenge Z
+			\item einen Anfangszustand $z_0$ $\in$ Z
+			\item ein Eingabealphabet X
+			\item eine Zustandsüberführungsfunktion f: Z x X $\rightarrow$ Z
+			\item ein Ausgabealphabet Y
+		\end{itemize} 
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Automaten}
+	\begin{block}{Akzeptoren}
+		Akzeptoren haben einen oder mehrere Akzeptierte Zustände, endet der Automat nach der Eingabe an einem dieser Zustände ist das Eingabewort akzeptiert.
+		Diese Zustände werden mit einem doppelten Kreis gekennzeichnet und werden akzeptierende Zustände genannt.
+		
+		Mit einem solchen Akzeptor können Formale Sprachen überprüft werden.
+	\end{block}
+\end{frame}
+
+\begin {frame}
+\frametitle {Ende}
+	\begin {center}
+		Noch Fragen?
+	\end {center}
+\end {frame}
+
+\begin {frame}
+\frametitle {Unnützes Wissen}
+	\begin {center}
+		Das Pfeifen unter Wasser ist in Florida verboten.
+	\end {center}
+\end {frame}
+
+\end {document}
